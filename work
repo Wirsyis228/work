@@ -1,0 +1,19 @@
+class MyApp(App):
+    def build(self):
+        layout = BoxLayout(orientation= 'vertical')
+        self.num1 = TextInput(multiline= False)
+        self.num2 = TextInput(multiline= False)
+        self.button = Button(text= '+')
+        self.button.bind(on_press= self.result)
+        self.res = Label(text= 'Result')
+        layout.add_widget(self.num1)
+        layout.add_widget(self.num2)
+        layout.add_widget(self.button)
+        layout.add_widget(self.res)
+        return layout
+    
+    def result(self, instance):
+        self.res.text = str(float(self.num1.text) + float(self.num2.text))
+
+if __name__ == "__main__":
+  MyApp().run()
